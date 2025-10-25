@@ -14,6 +14,7 @@ header{
     font-weight: bold;
     background: linear-gradient(90deg, #667eea, #764ba2);
     color: white;
+    text-align: center;
 }
 footer{
     height: 30px;
@@ -21,6 +22,7 @@ footer{
     font-size: 8pt;
     background: linear-gradient(90deg, #667eea, #764ba2);
     color: white;
+    text-align: center;
 }
 section{
     height: calc(100% - 80px);
