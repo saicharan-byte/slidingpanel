@@ -1,0 +1,113 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Panel</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body onload="loadProducts()">
+    <header>Sliding Panel</header>
+    <section>
+        <div class="products" id="productlist"></div>
+        <div class="overlay" id="overlay">
+            <div class="panel">
+                <button onclick="closePanel()">X</button>
+                <h2 id="prodname"></h2>
+                <p id="proddesc"></p>
+                <h3 id="prodprice"></h3>
+            </div>
+        </div>
+    </section>
+    <footer>Copyright @ 2025. All rights reserved.</footer>
+</body>
+<script>
+    const products = [
+        { 
+            name: 'Wireless Earbuds', 
+            shortDesc: 'Noise-cancelling Bluetooth earbuds', 
+            desc: 'Bluetooth 5.3 with noise cancellation and 20-hour battery life.', 
+            price: 39.99 
+        },
+        { 
+            name: 'Smartwatch', 
+            shortDesc: 'Track fitness & health stats', 
+            desc: 'Fitness tracking, heart rate monitor, and notification alerts.', 
+            price: 59.99 
+        },
+        { 
+            name: 'Portable Bluetooth Speaker', 
+            shortDesc: 'Compact speaker with deep bass', 
+            desc: 'Water-resistant with rich bass and 12-hour playback.', 
+            price: 29.99 
+        },
+        { 
+            name: 'Power Bank 10000mAh', 
+            shortDesc: 'Fast charging portable power', 
+            desc: 'Compact design with fast charging output.', 
+            price: 24.50 
+        },
+        { 
+            name: 'USB-C Hub', 
+            shortDesc: '6-in-1 multifunction adapter', 
+            desc: '6-in-1 adapter with HDMI, USB, and card reader.', 
+            price: 19.99 
+        },
+        { 
+            name: 'Wireless Mouse', 
+            shortDesc: 'Smooth, ergonomic wireless control', 
+            desc: 'Ergonomic design with adjustable DPI.', 
+            price: 14.99 
+        },
+        { 
+            name: 'Mechanical Keyboard', 
+            shortDesc: 'RGB backlit mechanical keyboard', 
+            desc: 'RGB backlit keys with blue switches.', 
+            price: 49.00 
+        },
+        { 
+            name: 'Webcam 1080p', 
+            shortDesc: 'Full HD video with mic', 
+            desc: 'Full HD webcam with built-in microphone.', 
+            price: 32.75 
+        },
+        { 
+            name: 'External Hard Drive 1TB', 
+            shortDesc: 'High-speed external storage', 
+            desc: 'High-speed USB 3.0 data transfer.', 
+            price: 64.00 
+        },
+        { 
+            name: 'LED Desk Lamp', 
+            shortDesc: 'Touch-controlled LED lighting', 
+            desc: 'Adjustable brightness with touch control and USB charging port.', 
+            price: 27.90 
+        },
+    ];
+
+    function loadProducts(){
+        productlist.innerHTML = "";
+        for(i=0;i<10;i++){
+            productlist.innerHTML += `<div onclick="showPanel(${i})"> 
+                                        <h3>${products[i].name}</h3>
+                                        <p>${products[i].shortDesc}</p>
+                                        <span>Read more..</span>
+                                      </div>
+                                     `;
+        }
+    }
+
+    function showPanel(index){
+        prodname.innerHTML = products[index].name;
+        proddesc.innerHTML = products[index].desc;
+        prodprice.innerHTML = "Price: $" + products[index].price;
+        overlay.classList.add("show");
+    }
+
+    function closePanel(){
+        overlay.classList.remove("show");
+    }
+</script>
+</html>

@@ -1,0 +1,82 @@
+
+
+html, body{
+    margin: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    background: #fafbfe;
+}
+header{
+    height: 50px;
+    line-height: 50px;
+    font-size: 12pt;
+    font-weight: bold;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+}
+footer{
+    height: 30px;
+    line-height: 30px;
+    font-size: 8pt;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+}
+section{
+    height: calc(100% - 80px);
+    overflow: auto;
+}
+section .products{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+section .products div{
+    width: 100%;
+    height: 125px;
+    background: white;
+    box-shadow: 0 10px 20px silver;
+    padding: 5px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+section .products div:hover{
+    transform: translateY(-8px);
+}
+section .products div span{
+    color: dodgerblue;
+}
+section .products div p{
+    color: gray;
+}
+section .overlay{
+    width: 100%;
+    height: calc(100% - 80px);
+    background: rgb(0, 0, 0, 0.3);
+    position: fixed;
+    top: 50px;
+    display: none;
+}
+section .overlay.show{
+    display: flex;
+    justify-content: flex-end;
+}
+section .overlay .panel{
+    width: 300px;
+    height: calc(100% - 20px);
+    background: white;
+    padding: 10px;
+    animation: slidein 0.5s ease;
+}
+section .overlay .panel button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    float: right;
+}
+@keyframes slidein {
+    from{transform: translateX(100%);}
+    to{transform: translateX(0);}
+}
